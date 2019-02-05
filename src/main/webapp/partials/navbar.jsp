@@ -4,6 +4,10 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="/ads">Adlister</a>
         </div>
+        <ul class="nav navbar-nav navbar-left">
+            <li><a href="/resume">Resume</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+        </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/login">Login</a></li>
         </ul>
