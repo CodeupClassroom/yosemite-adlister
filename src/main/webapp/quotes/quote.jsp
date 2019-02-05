@@ -13,6 +13,8 @@
 <div class="container">
     <h1>Quote: ${quote.quote}</h1>
     <p>Author: ${quote.author}</p>
+
+    <a href="/quotes/random" class="btn btn-primary">Get another random quote!</a>
 </div>
 
 </body>
