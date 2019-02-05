@@ -13,7 +13,10 @@ public class CounterServlet extends HttpServlet {
 
         count += 1;
 
+        // setAttribute sends in an object into the view
         request.setAttribute("count", count);
+
+        // Render the .jsp and give the .jsp access to the set attribute
         request.getRequestDispatcher("/counter.jsp").forward(request, response);
 
     }

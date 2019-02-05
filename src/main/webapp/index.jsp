@@ -3,6 +3,7 @@
 <html>
 <head>
     <jsp:include page="partials/head.jsp" />
+
     <title><%= "Welcome to the Home Page" %></title>
 </head>
 <body>

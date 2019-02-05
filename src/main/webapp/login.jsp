@@ -17,7 +17,6 @@
         }
 
     }
-
 %>
 
 <jsp:include page="partials/navbar.jsp" />
