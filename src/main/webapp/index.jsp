@@ -2,14 +2,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title><%= "some title" %></title>
+    <jsp:include page="partials/head.jsp" />
+    <title><%= "Welcome to the Home Page" %></title>
 </head>
 <body>
-    <c:if test="true">
-        <h1>Variable names should be very descriptive</h1>
-    </c:if>
-    <c:if test="false">
-        <h1>single letter variable names are good</h1>
-    </c:if>
+    <jsp:include page="partials/navbar.jsp" />
+
+    <main class="container">
+        <h1>Welcome to the Home Page of the Ad-Lister</h1>
+
+        <img src="https://cdn.glitch.com/c1e65908-81db-4c5b-8274-40cc385dfa54%2Fretro-ads.jpg?1549401801633" alt="retro advertisement for advertisements">
+    </main>
 </body>
 </html>
