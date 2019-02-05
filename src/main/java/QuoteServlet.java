@@ -1,30 +1,23 @@
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name="QuoteServlet", urlPatterns = "/randomquote")
+@WebServlet(name="QuoteServlet", urlPatterns = "/quotes/random")
 public class QuoteServlet extends HttpServlet {
-    protected String[] quotes = {
-        "Whatever you are, be a good one - Abraham Lincoln",
-        "It's about making your users awesome, enabling them to kick butt! - Kathy Sierra"
-    };
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String message = "<h1>Quote: '" + getRandomQuote() + "'.</h1>";
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        response.getWriter().println(message);
+        // talk to QuotesDao, call the random method to get a random quote.
+        Quote randomQuote = DaoFactory.getQuotesDao().random();
+
+        // Bind the randomQuote object as an attribute to the request object.
+        request.setAttribute("quote", randomQuote);
+
+        // The requestDispatcher runs any java code in order to render the appropriate HTML.
+        request.getRequestDispatcher("/quotes/quote.jsp").forward(request, response);
     }
-
-    protected String getRandomQuote() {
-        // randomly generate an index in range
-        int index = (int) Math.floor(Math.random() * quotes.length);
-
-        // assign the quote variable to hold a random quote string
-        return quotes[index];
-    }
-
-
 }

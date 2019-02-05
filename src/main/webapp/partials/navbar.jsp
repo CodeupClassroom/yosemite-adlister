@@ -5,6 +5,8 @@
             <a class="navbar-brand" href="/ads">Adlister</a>
         </div>
         <ul class="nav navbar-nav navbar-left">
+            <li><a href="/quotes">List All Quotes</a></li>
+            <li><a href="/quotes/random">Get a random quote</a></li>
             <li><a href="/resume">Resume</a></li>
             <li><a href="/portfolio">Portfolio</a></li>
         </ul>
