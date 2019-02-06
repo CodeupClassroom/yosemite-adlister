@@ -12,7 +12,7 @@
     <main class="container">
         <h1>Welcome to the Home Page of the Ad-Lister</h1>
 
-        <img src="images/retro-ads.jpg" alt="retro advertisement for advertisements">
+        <img src="/images/retro-ads.jpg" alt="retro advertisement for advertisements">
     </main>
 </body>
 </html>
