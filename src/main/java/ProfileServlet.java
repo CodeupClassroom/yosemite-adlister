@@ -11,6 +11,7 @@ public class ProfileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.getRequestDispatcher("WEB-INF/profile.jsp").forward(request, response);
+        response.sendRedirect("/login");
+//        request.getRequestDispatcher("WEB-INF/profile.jsp").forward(request, response);
     }
 }
