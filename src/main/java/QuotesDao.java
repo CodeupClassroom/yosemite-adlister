@@ -23,6 +23,17 @@ public class QuotesDao implements Quotes {
 
     }
 
+    public Quote findOne(long id) {
+        if(quotes == null) {
+            quotes = generateQuotes();
+        }
+
+        return quotes.get((int) id - 1);
+    }
+
+
+
+
     private List<Quote> generateQuotes() {
         List<Quote> quotes = new ArrayList<>();
         quotes.add(new Quote(
@@ -51,8 +62,13 @@ public class QuotesDao implements Quotes {
 
         quotes.add(new Quote(
                 6,
-                "Always remember the first lesson. The first lesson is to breath. Take a breath!",
+                "Always remember the first lesson. The first lesson is to breath. Remember to breath!",
                 "Daniel Fryar"));
+
+        quotes.add(new Quote(
+                7,
+                "Talent is a pursued interest. Anything that you're willing to practice, you can do.",
+                "Bob Ross"));
 
         return quotes;
     }

@@ -5,27 +5,13 @@
 </head>
 <body>
 
-<%
-    if(request.getMethod().equalsIgnoreCase("post")) {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-
-        if(username.equals("admin") && password.equals("password")) {
-            response.sendRedirect("/profile.jsp");
-        } else {
-            response.getWriter().println("<div class='alert alert-danger' role='alert'>The username or password is incorrect!</div>");
-        }
-
-    }
-%>
-
 <jsp:include page="partials/navbar.jsp" />
 
 <main class="container">
 
     <h1>Login to your account</h1>
 
-    <form action="login.jsp" method="POST">
+    <form action="/login" method="POST">
 
         <div class="form-group">
             <label for="username">Username:</label>

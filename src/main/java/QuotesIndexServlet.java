@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name="QuotesIndexServlet", urlPatterns = "/quotes")
-
 public class QuotesIndexServlet extends HttpServlet {
 
     @Override
@@ -20,7 +19,7 @@ public class QuotesIndexServlet extends HttpServlet {
         request.setAttribute("quotes", quotes);
 
         // send the response along w/ the data
-        request.getRequestDispatcher("/quotes/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/quotes/index.jsp").forward(request, response);
 
     }
 }
