@@ -7,6 +7,7 @@
         <li><a href="/count">Counter Servlet</a></li>
         <li><a href="/quotes">List All Quotes</a></li>
         <li><a href="/quotes/random">Get a random quote</a></li>
+        <li><a href="/ads">See all of our ads</a></li>
     </ul>
     
 </nav>
