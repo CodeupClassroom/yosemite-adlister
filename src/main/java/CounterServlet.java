@@ -17,7 +17,7 @@ public class CounterServlet extends HttpServlet {
         request.setAttribute("count", count);
 
         // Render the .jsp and give the .jsp access to the set attribute
-        request.getRequestDispatcher("/counter.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/counter.jsp").forward(request, response);
 
     }
 }
