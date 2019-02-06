@@ -42,6 +42,6 @@
     </c:choose>
 </c:forEach>
 
-<%@ include file="partials/footer.jsp"%>
+<%@ include file="WEB-INF/partials/footer.jsp"%>
 </body>
 </html>

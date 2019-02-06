@@ -1,16 +1,19 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: daniel
-  Date: 2019-02-06
-  Time: 14:02
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <jsp:include page="partials/head.jsp" />
 </head>
 <body>
+
+<jsp:include page="partials/navbar.jsp" />
+
+<main class="container">
+
+    <%-- Page Content Goes Here --%>
+
+</main>
+
+<jsp:include page="partials/footer.jsp" />
 
 </body>
 </html>
