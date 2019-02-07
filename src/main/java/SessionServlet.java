@@ -14,13 +14,18 @@ public class SessionServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
 
+        // read the langPref from request params
         String languagePreference = request.getParameter(LanguageService.LANGUAGE);
+        // if it's there, add it to the session
         if (languagePreference != null)
             session.setAttribute(LanguageService.LANGUAGE, languagePreference);
+        // otherwise, get it from the session
         else
             languagePreference = (String) session.getAttribute(LanguageService.LANGUAGE);
+
+        // if it wasn't on the request or in the session, set the default on the session
         if (languagePreference == null) {
-            languagePreference = LanguageService.LANGUAGE_ENGLISH;
+            languagePreference = LanguageService.LANGUAGE_DEFAULT;
             session.setAttribute(LanguageService.LANGUAGE, languagePreference);
         }
 
