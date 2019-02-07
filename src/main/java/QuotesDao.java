@@ -1,16 +1,71 @@
+import java.sql.*;
+
+import com.mysql.cj.jdbc.Driver;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class QuotesDao implements Quotes {
 
-    private List<Quote> quotes;
+    // new stuff
+    private Connection connection = null;
 
-    public List<Quote> all() {
-        if(quotes == null) {
-            quotes = generateQuotes();
+    public QuotesDao(Config config) {
+        try {
+            DriverManager.registerDriver(new Driver());
+            connection = DriverManager.getConnection(
+                    config.getUrl(),
+                    config.getUsername(),
+                    config.getPassword()
+            );
+        } catch (SQLException e) {
+            throw new RuntimeException("Error connecting to the database!", e);
         }
-        return quotes;
     }
+
+    // refactor the all method to get records from the database
+    @Override
+    public List<Quote> all() {
+        //
+        quotes = new ArrayList<>();
+        String query = "SELECT * FROM quotes";
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            while(rs.next()){
+                quotes.add(createQuoteFromResults(rs));
+            }
+
+            return quotes;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Quote createQuoteFromResults(ResultSet rs){
+        try{
+
+            return new Quote(
+                    rs.getLong("id"),
+                    rs.getString("author"),
+                    rs.getString("quote")
+            );
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+
+
+    // what we had yesterday is below
+    private List<Quote> quotes;
 
     public Quote random() {
         if(quotes == null) {

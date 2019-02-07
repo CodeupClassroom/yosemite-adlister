@@ -10,3 +10,9 @@ nav > ul > li {
 nav > ul > li:hover {
     background-color: lightgray;
 }
+
+.quote {
+    background-color: papayawhip;
+    border: 1px solid crimson;
+    padding: 1em;
+}

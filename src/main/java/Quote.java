@@ -3,7 +3,7 @@ public class Quote {
     private String author;
     private long id;
 
-    public Quote(long id, String quote, String author) {
+    public Quote(long id, String author, String quote) {
         this.id = id;
         this.quote = quote;
         this.author = author;

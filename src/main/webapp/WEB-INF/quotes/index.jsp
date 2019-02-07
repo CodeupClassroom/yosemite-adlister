@@ -12,7 +12,7 @@
         <h1>Here Are all the quotes!</h1>
 
         <c:forEach var="quote" items="${quotes}">
-            <div class="col-md-6">
+            <div class="quote">
                 <h2>${quote.quote}</h2>
                 <p>Author: ${quote.author}</p>
             </div>
