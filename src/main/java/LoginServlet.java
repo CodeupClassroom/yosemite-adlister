@@ -15,7 +15,7 @@ public class LoginServlet extends HttpServlet {
         if (request.getSession().getAttribute(LoginServlet.USER) != null) {
             response.sendRedirect("/profile");
         } else {
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }
     }
 
@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
         boolean validAttempt = username.equals("admin") && password.equals("password");
 
         if (validAttempt) {
-            request.getSession().setAttribute(USER, "user");
+            request.getSession().setAttribute(USER, "admin");
             response.sendRedirect("/profile");
         } else {
             response.sendRedirect("/login");
