@@ -23,6 +23,12 @@ public class ListAdsDao implements Ads {
         return ad.getId();
     }
 
+    @Override
+    public Ad findOne(Long id) {
+        int intId = id.intValue();
+        return ads.get(intId);
+    }
+
     private List<Ad> generateAds() {
         List<Ad> ads = new ArrayList<>();
         ads.add(new Ad(
