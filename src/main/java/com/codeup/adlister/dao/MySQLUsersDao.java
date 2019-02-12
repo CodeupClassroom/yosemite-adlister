@@ -30,8 +30,7 @@ public class MySQLUsersDao implements Users {
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, username);
-            stmt.executeUpdate();
-            ResultSet rs = stmt.getGeneratedKeys();
+            ResultSet rs = stmt.executeQuery();
             rs.next();
             return extractUser(rs);
         } catch (SQLException e) {
