@@ -18,7 +18,7 @@ public class MySQLAdsDao implements Ads {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
                 config.getUrl(),
-                config.getUser(),
+                config.getUsername(),
                 config.getPassword()
             );
         } catch (SQLException e) {
@@ -49,6 +49,18 @@ public class MySQLAdsDao implements Ads {
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
         }
+    }
+
+    public List<Ad> orderedAds(String order){
+         String qry = "select * from ads order by id " + order;
+
+            try {
+                Statement stmt = connection.createStatement();
+                ResultSet rs = stmt.executeQuery(qry);
+                return createAdsFromResults(rs);
+            } catch (SQLException e) {
+                throw new RuntimeException("Error creating a new ad.", e);
+            }
     }
 
     private String createInsertQuery(Ad ad) {
