@@ -52,11 +52,12 @@ public class MySQLAdsDao implements Ads {
     }
 
     public List<Ad> orderedAds(String order){
-         String qry = "select * from ads order by id " + order;
+         String qry = "select * from ads where title = ?";
 
             try {
-                Statement stmt = connection.createStatement();
-                ResultSet rs = stmt.executeQuery(qry);
+                PreparedStatement stmt = connection.prepareStatement(qry);
+                stmt.setString(1, order);
+                ResultSet rs = stmt.executeQuery();
                 return createAdsFromResults(rs);
             } catch (SQLException e) {
                 throw new RuntimeException("Error creating a new ad.", e);

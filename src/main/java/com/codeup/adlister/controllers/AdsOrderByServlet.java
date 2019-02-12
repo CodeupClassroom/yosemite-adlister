@@ -14,7 +14,7 @@ public class AdsOrderByServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.setAttribute("ads", DaoFactory.getAdsDao().orderedAds("desc"));
+        request.setAttribute("ads", DaoFactory.getAdsDao().orderedAds("Obcaecati sunt enim"));
         request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
 
     }
